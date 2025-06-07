@@ -1,0 +1,68 @@
+public static void CheckNumberIsOddOrEven(){
+int num = 7;
+if(num % 2 == 0){
+Console.WriteLine(num + " Given is Even Number");
+}else{
+Console.WriteLine(num + " Given is Odd Number");
+}
+}
+
+public static void ReverseNumber(){
+int num = 12345;
+int rev = 0;
+while(num!=0){
+  int digit = num % 10;
+  rev = rev * 10 + digit;
+  num /= 10;
+}
+Console.WriteLine(rev);
+}
+
+public static void PalindromeNumber(){
+int num = 121;
+int original = num; // important line
+int rev = 0;
+while(num!=0){
+int digit = num%10;
+rev = rev * 10 + digit;
+num /= 10;
+}
+if(rev == num){
+Console.WriteLine(rev+" Given number is a Palindrome");
+}
+else{
+Console.WriteLine(rev+" Given number is not a Palindrome");
+}
+}
+
+public static void Factorial(){
+int fact = 5;
+int num = 1;
+for(int i=1; i<=fact; i++){
+num *= i;
+}
+Console.WriteLine(num);
+}
+
+public static void SumOfDigit(){
+int num = 1234;
+int result = 0;
+while(num!=0){
+int digit = num % 10;
+result += digit;
+num /= 10;
+}
+Console.WriteLine(result);
+}
+
+
+
+
+
+
+
+
+
+
+
+

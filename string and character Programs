@@ -7,10 +7,113 @@ public static void ReverseString()
     {
         reversed += input[i];
     }
-
     Console.WriteLine("Reversed String: " + reversed);  //Reversed String: olleh
-
 }
+
+public static void CheckPalindrome()
+{
+    string input = "madam";
+    string reversed = "";
+    for(int i = input.Length - 1; i>=0; i--){
+     reversed += input[i];
+    }
+    if(reversed.Equals(input, StringComparison.OrdinalIgnoreCase()){
+     Console.WriteLine(input +" - Given String is a Palindrome");  // madam - Given String is a Palindrome
+}
+}
+
+using System;
+using System.Collections.Generic;
+public static void RemoveDuplicateWords()
+{
+string input = "apple banana apple orange banana";
+string [] arr = input.Split(' ');
+List<string> Unique = new List<string>();
+foreach(string words in arr){
+if(!Unique.Contains(words)){
+Unique.Add(words);
+}
+}
+Console.Write("After Duplicates Removal : "+string.Join(", ",Unique));
+}
+
+public static void VowelsandConstants(){
+string input = "Hello World";
+int vowelcount = 0;
+int constcount = 0;
+string vowels = "aeiouAEIOU";
+for(int i =0; i<input.Length; i++){
+ char c = input[i];
+if(char.IsLetter(c)){
+if(vowels.Contains(c)){
+vowelcount++;
+}
+else{
+constcount++;
+}
+}
+}
+Console.WriteLine(vowelcount);
+Console.WriteLine(constcount);
+}
+
+public static void Anagram(){
+string str1 = "listen";
+string str2 = "silent";
+
+char[]arr1 = str1.ToLower().ToCharArray();
+char[]arr2 = str2.ToLower().ToCharArray();
+
+Array.Sort(arr1);
+Array.Sort(arr2);
+
+bool isAnagram = new string(arr1) == new string(arr2);
+if(isAnagram == true){
+Console.WriteLine("Strings are Anagram");
+}
+else{
+Console.WriteLine("Strings are not Anagram");
+}
+}
+
+public static void CapitalizeFirstLetterOfEachWord(){
+        string input = "hello world this is c#";
+        string [] arr = input.Split(' ');
+string result = "";
+foreach(string word in arr){
+if(word.Length > 0){
+string capitalize = char.ToUpper(word[0]) + word.Substring(1);
+result += capitalize + " ";
+}
+}
+result = result.Trim();
+Console.WriteLine(result);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

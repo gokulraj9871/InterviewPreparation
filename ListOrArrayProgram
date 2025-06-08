@@ -1,0 +1,39 @@
+public static void MaxMinInAnArray(){
+        int[] numbers = { 10, 25, 6, 89, 4, 73, 55 };
+        int max = numbers[0];
+        int min = numbers[0];
+        for(int i=1; i<numbers.Length; i++){
+        if(numbers[i] > max){
+        max= numbers[i];
+        }
+        else if(numbers[i]<min){
+        min = numbers[i];
+        }
+        }
+        Console.WriteLine(max +" Largest element in the Array");
+        Console.WriteLine(min +" Smallest element in the Array");
+}
+
+public static void FindLargestAndSmallestlengthinArray(){
+            string[] arr = { "Orange", "fig", "guava", "banana", "apple" };
+string max = arr[0];
+string min = arr[0];
+for(int i=1;i<arr.Length;i++){
+if(arr[i].Length>max.Length){
+max=arr[i];
+}
+if(arr[i].Length<min.Length){
+min=arr[i];
+}
+}
+Console.WriteLine(min);
+Console.WriteLine(max);//This will print Orange becauefor(int i=1;i<arr.Length;i++){ this condition will not be executed but if we for(int i=1;i<=arr.Length;i++){ then orange will be printed
+}
+
+
+
+
+
+
+
+

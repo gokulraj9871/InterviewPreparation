@@ -104,3 +104,70 @@ public class SampleTest : BaseTest
 }
 
 
+
+//Screenshot explaination
+Step-by-step Explanation:
+public string CaptureScreenshot(string testName)
+This is a method that takes testName as a parameter.
+
+It returns a string (which will be the path of the saved screenshot file).
+
+You can call this method and pass the test name like:
+CaptureScreenshot("LoginTest")
+
+string screenshotDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Screenshots");
+This creates a path to a folder named Screenshots.
+
+AppDomain.CurrentDomain.BaseDirectory is the root directory of your running test project (bin\Debug or bin\Release).
+
+Path.Combine(...) safely combines the base path and folder name to avoid path errors.
+
+📝 Example result:
+C:\YourProject\bin\Debug\net6.0\Screenshots
+
+Directory.CreateDirectory(screenshotDir);
+This creates the Screenshots folder if it doesn't already exist.
+
+It’s safe — it won't throw an error if the folder already exists.
+
+string filePath = Path.Combine(screenshotDir, testName + ".png");
+This builds the full file path where the screenshot will be saved.
+
+testName + ".png" means your screenshot will be named like LoginTest.png.
+
+📝 Example result:
+C:\YourProject\bin\Debug\net6.0\Screenshots\LoginTest.png
+
+Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
+This line takes the screenshot of the current browser window.
+
+driver is your Selenium WebDriver.
+
+(ITakesScreenshot)driver casts the WebDriver into a type that supports screenshots.
+
+.GetScreenshot() captures the screenshot and stores it in the ss object.
+
+ss.SaveAsFile(filePath, ScreenshotImageFormat.Png);
+This saves the captured screenshot as a PNG file to the path we created earlier.
+
+It writes the file physically into your project’s Screenshots folder.
+
+return filePath;
+Returns the full file path of the screenshot.
+
+You can use this path for logging, report attachment, etc.
+
+✅ Example Use:
+csharp
+Copy
+Edit
+string screenshotPath = CaptureScreenshot("HomePageTest");
+Console.WriteLine("Screenshot saved at: " + screenshotPath);
+✅ Output:
+Screenshot will be saved at:
+
+mathematica
+Copy
+Edit
+C:\YourProject\bin\Debug\net6.0\Screenshots\HomePageTest.png
+

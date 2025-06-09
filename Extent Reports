@@ -1,1 +1,106 @@
+//ExtentManager.cs file will be in core project(base class)
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+
+public class ExtentManager
+{
+    public static ExtentReports extent;
+    public static ExtentTest test;
+
+    public static void StartReport()
+    {
+        var htmlReporter = new ExtentHtmlReporter("ExtentReport.html");
+        extent = new ExtentReports();
+        extent.AttachReporter(htmlReporter);
+    }
+
+    public static void FlushReport()
+    {
+        extent.Flush();
+    }
+}
+
+
+using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using System;
+using System.IO;
+
+public class BaseTest
+{
+    public IWebDriver driver;
+
+    [OneTimeSetUp]
+    public void GlobalSetup()
+    {
+        ExtentManager.StartReport(); // Start Extent Report
+    }
+
+    [SetUp]
+    public void TestSetup()
+    {
+        driver = new ChromeDriver();
+        ExtentManager.test = ExtentManager.extent.CreateTest(TestContext.CurrentContext.Test.Name);
+    }
+
+    [TearDown]
+    public void TestCleanup()
+    {
+        var status = TestContext.CurrentContext.Result.Outcome.Status;
+
+        if (status == NUnit.Framework.Interfaces.TestStatus.Failed)
+        {
+            string screenshotPath = CaptureScreenshot(TestContext.CurrentContext.Test.Name);
+            ExtentManager.test.Fail("Test Failed")
+                .AddScreenCaptureFromPath(screenshotPath);
+        }
+        else
+        {
+            ExtentManager.test.Pass("Test Passed");
+        }
+
+        driver.Quit();
+    }
+
+    [OneTimeTearDown]
+    public void GlobalTeardown()
+    {
+        ExtentManager.FlushReport(); // Finalize report
+    }
+
+    public string CaptureScreenshot(string testName)
+    {
+        string screenshotDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Screenshots");
+        Directory.CreateDirectory(screenshotDir);
+        string filePath = Path.Combine(screenshotDir, testName + ".png");
+
+        Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
+        ss.SaveAsFile(filePath, ScreenshotImageFormat.Png);
+
+        return filePath;
+    }
+}
+
+
+//Sample test in unit project
+using NUnit.Framework;
+
+public class SampleTest : BaseTest
+{
+    [Test]
+    public void GoogleTest()
+    {
+        driver.Navigate().GoToUrl("https://www.google.com");
+        Assert.IsTrue(driver.Title.Contains("Google")); // Pass
+    }
+
+    [Test]
+    public void FailingTest()
+    {
+        driver.Navigate().GoToUrl("https://www.google.com");
+        Assert.IsTrue(driver.Title.Contains("Bing")); // Fail intentionally
+    }
+}
+
 

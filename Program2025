@@ -1,0 +1,43 @@
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        //Reverse whole Sentence
+        string name = "Welcome to c#";
+        string reverse = "";
+        for(int i=name.Length-1;i>=0; i--){
+            reverse += name[i];
+        }
+        Console.WriteLine(reverse); //#c ot emocleW
+    }
+public static void Main(string[] args)
+    {
+        //Reversal of each word
+        string name = "Welcome to c#";
+        string [] input = name.Split(' ');
+        string reverse = "";
+        foreach(var rev in input){
+                    for(int i=rev.Length-1;i>=0; i--){
+            reverse += rev[i];
+        }
+        reverse += " ";
+        }
+
+        Console.WriteLine(reverse); //emocleW ot #c 
+    }
+public static void Main(string[] args)
+    {
+        //Reverse the sentence
+        string name = "Welcome to c#";
+        string [] input = name.Split(' ');
+        string reverse = "";
+                    for(int i=input.Length-1;i>=0; i--){
+            reverse += input[i];
+        
+        reverse += " ";
+        }
+
+        Console.WriteLine(reverse); //c# to Welcome 
+    }
+
+}

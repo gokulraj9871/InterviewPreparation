@@ -171,3 +171,51 @@ Copy
 Edit
 C:\YourProject\bin\Debug\net6.0\Screenshots\HomePageTest.png
 
+
+using System;
+
+// Interface — camera feature (fully abstract)
+interface ICamera
+{
+    void TakePhoto();
+}
+
+// Abstract class — common mobile features
+abstract class Mobile
+{
+    public void MakeCall()
+    {
+        Console.WriteLine("Making a call...");
+    }
+
+    public abstract void ModelName();  // Abstract method
+}
+
+// Concrete class — Samsung phone
+class Samsung : Mobile, ICamera
+{
+    public override void ModelName()
+    {
+        Console.WriteLine("Model: Samsung Galaxy A15");
+    }
+
+    public void TakePhoto()
+    {
+        Console.WriteLine("Photo taken using Samsung camera.");
+    }
+}
+
+// Main program
+class Program
+{
+    static void Main()
+    {
+        Samsung myPhone = new Samsung();
+
+        myPhone.MakeCall();       // from abstract class
+        myPhone.ModelName();      // abstract method overridden
+        myPhone.TakePhoto();      // from interface
+    }
+}
+
+

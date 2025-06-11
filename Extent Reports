@@ -218,4 +218,15 @@ class Program
     }
 }
 
+        public Dictionary<string, string> ReadPostingsTestData(string JsonSection)
+        {
+            var json = File.ReadAllText(this.TestDataFilePath("PostingsTestData.json"));
+            JObject jsonObj = JObject.Parse(json);
+            Dictionary<string, string> TestData = jsonObj[JsonSection].ToObject<Dictionary<string, string>>();
+            return TestData;
+        }
+
+1st read which file do you want from the filepath and then read all the values from it
+2nd Parse thar json to jsonobject
+3rd convert which jsonobject to an dictionary
 

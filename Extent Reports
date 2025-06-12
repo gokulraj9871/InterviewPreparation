@@ -257,3 +257,9 @@ git stash	Temporarily saves changes	When switching tasks without committing
 git stash pop	Applies stashed changes	To resume stashed work
 .gitignore	File that ignores patterns	Avoids committing temp/log/config files
 
+Modifier	Accessible Where?
+
+private	Only inside the same class
+protected	Inside same class + derived classes only
+internal	Anywhere in the same project/assembly
+public	Anywhere (project or outside)

@@ -230,3 +230,30 @@ class Program
 2nd Parse thar json to jsonobject
 3rd convert which jsonobject to an dictionary
 
+Git Commands Cheat Sheet for Interviews
+
+Git Command	Description	When/Why It's Used
+
+git init	Initializes a new Git repository	To start versioning a project
+git clone <url>	Clones a remote repo to local	To download an existing project
+git status	Shows file status	To see tracked/untracked/staged files
+git add <file>	Adds file to staging area	To stage files before commit
+git add .	Stages all changed files	Quickly stage all changes
+git commit -m "msg"	Saves snapshot of staged files	To record project changes
+git push	Uploads local commits to remote	To share work with team
+git pull	Fetches + merges changes from remote	To update your local branch
+git fetch	Gets latest changes from remote (no merge)	To preview changes before merging
+git branch	Lists all local branches	To view existing branches
+git branch <name>	Creates new branch	To work on a feature separately
+git checkout <name>	Switches to given branch	To move between branches
+git checkout -b <name>	Creates and switches to new branch	One-line shortcut
+git merge <branch>	Merges target branch into current	To integrate changes
+git log	Shows commit history	To audit previous work
+git diff	Shows changes not yet staged	For code comparison
+git reset <file>	Unstages file	To cancel staging
+git reset --hard	Resets working directory and commits	To discard all changes (dangerous)
+git revert <hash>	Reverts a specific commit safely	To undo a commit without breaking history
+git stash	Temporarily saves changes	When switching tasks without committing
+git stash pop	Applies stashed changes	To resume stashed work
+.gitignore	File that ignores patterns	Avoids committing temp/log/config files
+

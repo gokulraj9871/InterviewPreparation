@@ -326,3 +326,63 @@ foreach (IWebElement row in allRows)
 | 3️⃣  | Loops through each row                                |
 | 4️⃣  | Gets each column inside the row (Name & Role)         |
 | 5️⃣  | If Name is "Yugesh", it prints the corresponding Role |
+
+using System;
+using RestSharp;
+
+using System;
+using RestSharp;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Step 1: Create the client
+        var client = new RestClient("https://jsonplaceholder.typicode.com");
+
+        // Step 2: Create the request and specify the method as POST
+        var request = new RestRequest("posts", Method.Post);
+
+        // Step 3: Add header (optional for this API, but good practice)
+        request.AddHeader("Content-Type", "application/json");
+
+        // Step 4: Add JSON body
+        var jsonBody = new
+        {
+            title = "Gokul's Test",
+            body = "Learning API with RestSharp",
+            userId = 101
+        };
+        request.AddJsonBody(jsonBody);
+
+        // Step 5: Execute the request
+        var response = client.Execute(request);
+
+        // Step 6: Print the response
+        Console.WriteLine("Status Code: " + response.StatusCode);
+        Console.WriteLine("Response Body:\n" + response.Content);
+    }
+}
+
+
+
+Status Code: OK
+Response Body:
+{
+  "userId": 1,
+  "id": 1,
+  "title": "some title...",
+  "body": "some body text..."
+}
+
+| Step | Code                                | Meaning                              |
+| ---- | ----------------------------------- | ------------------------------------ |
+| 1️⃣  | `new RestClient(...)`               | Sets base URL                        |
+| 2️⃣  | `new RestRequest(..., Method.Post)` | Tells it's a POST request            |
+| 3️⃣  | `AddHeader(...)`                    | Optional headers (like Content-Type) |
+| 4️⃣  | `AddJsonBody(...)`                  | Adds request body in JSON format     |
+| 5️⃣  | `client.Execute(request)`           | Sends the POST request               |
+| 6️⃣  | Print response status and content   |                                      |
+
+
+

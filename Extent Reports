@@ -297,3 +297,32 @@ public class Program
         pg.MakeSound();        // Output: Some animal sound
     }
 }
+
+
+// Step 1: Locate the table
+IWebElement table = driver.FindElement(By.Id("employeeTable"));
+
+// Step 2: Get all rows inside tbody
+IList<IWebElement> allRows = table.FindElements(By.XPath(".//tbody/tr"));
+
+// Step 3: Loop through each row
+foreach (IWebElement row in allRows)
+{
+    // Step 4: Get all columns (td) inside the row
+    IList<IWebElement> columns = row.FindElements(By.TagName("td"));
+
+    // Step 5: Match the name and pick the role
+    if (columns[0].Text.Trim() == "Yugesh")
+    {
+        string role = columns[1].Text; // picking role
+        Console.WriteLine("Yugesh's Role: " + role);
+        break;
+    }
+}
+| Step | What it does                                          |
+| ---- | ----------------------------------------------------- |
+| 1️⃣  | Finds the table by ID                                 |
+| 2️⃣  | Gets all rows from the `tbody`                        |
+| 3️⃣  | Loops through each row                                |
+| 4️⃣  | Gets each column inside the row (Name & Role)         |
+| 5️⃣  | If Name is "Yugesh", it prints the corresponding Role |

@@ -263,3 +263,37 @@ private	Only inside the same class
 protected	Inside same class + derived classes only
 internal	Anywhere in the same project/assembly
 public	Anywhere (project or outside)
+
+
+Abstract class can provide the implementation of interface
+using System;
+
+// Step 1: Interface
+public interface IAnimal
+{
+    void MakeSound();
+}
+
+// Step 2: Abstract class implementing the interface
+public abstract class Animal : IAnimal
+{
+    public void MakeSound()
+    {
+        Console.WriteLine("Some animal sound");
+    }
+}
+
+// Step 3: Derived class
+public class Dog : Animal
+{
+    // Inherits MakeSound() from Animal
+}
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Animal pg = new Dog(); // ✅ You can assign derived object to abstract reference
+        pg.MakeSound();        // Output: Some animal sound
+    }
+}

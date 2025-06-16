@@ -385,4 +385,4 @@ Response Body:
 | 6️⃣  | Print response status and content   |                                      |
 
 
-
+Collections are used to store and handle multiple values together — like a basket that holds many items (numbers, names, objects, etc.).

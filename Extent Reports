@@ -364,7 +364,8 @@ class Program
     }
 }
 
-
+var response = client.Execute(request);
+Dictionary<string, string> responseData = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
 
 Status Code: OK
 Response Body:

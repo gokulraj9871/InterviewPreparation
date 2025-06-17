@@ -386,3 +386,19 @@ Response Body:
 
 
 Collections are used to store and handle multiple values together — like a basket that holds many items (numbers, names, objects, etc.).
+
+
+200 OK	✅ Success	Request succeeded
+201 Created	✅ Success	Resource was created (e.g., POST)
+204 No Content	✅ Success	Success but no data returned
+301 Moved Permanently	🔁 Redirect	URL has changed
+302 Found	🔁 Redirect	Temporary redirect
+400 Bad Request	❌ Client Error	Invalid request format or data
+401 Unauthorized	❌ Client Error	Missing or invalid auth (login/token)
+403 Forbidden	❌ Client Error	Authenticated but not allowed
+404 Not Found	❌ Client Error	Resource doesn't exist
+500 Internal Server Error	❌ Server Error	Server crashed
+502 Bad Gateway	❌ Server Error	Invalid response from another server
+503 Service Unavailable	❌ Server Error	Server is down or busy
+
+

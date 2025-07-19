@@ -402,4 +402,31 @@ Collections are used to store and handle multiple values together — like a bas
 502 Bad Gateway	❌ Server Error	Invalid response from another server
 503 Service Unavailable	❌ Server Error	Server is down or busy
 
+how interface support multiple inheritance 
+// First interface
+public interface IReadable
+{
+    void Read();
+}
+
+// Second interface
+public interface IWritable
+{
+    void Write();
+}
+
+// A class implementing both interfaces
+public class Document : IReadable, IWritable
+{
+    public void Read()
+    {
+        Console.WriteLine("Reading document...");
+    }
+
+    public void Write()
+    {
+        Console.WriteLine("Writing document...");
+    }
+}
+
 

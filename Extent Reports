@@ -430,3 +430,7 @@ public class Document : IReadable, IWritable
 }
 
 
+URI	"Employee/123" – identifies an employee, but doesn't say how to access it.
+URL	"https://api.mycompany.com/Employee/123" – tells the exact location and how to access it over the web.
+
+

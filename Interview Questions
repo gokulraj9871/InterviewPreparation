@@ -1,0 +1,66 @@
+Questions asked in Interviews
+
+C#
+1- what is pre increment and decrement & post post increment and decrement
+2- where will be using switch cases
+3- diff b/w for loop vs foreach loop
+4- what is Break and continue
+5- what is array
+6- what is constructor and types and explain with an example for each types and especially what is copy constructor
+7- what is method overloading and explain with an example and where are using this in your framework
+8- what is method overriding and explain with an example and where are using this in your framework
+9- what is encapsulation and explain with an example and where are using this in your framework
+10- what is Inheritance & types and explain with an example and where are using this in your framework
+11- what is Abstraction and explain with an example and where are using this in your framework
+12- what is Interface and explain with an example and where are using this in your framework
+13- Write an Program with Interface and Abstract class
+14- Difference b/w Abstraction and Interface
+15- explain few of the methods used in string
+16- Difference b/w Equals and ==
+17- What are collections [just explain only List and Dictionary]
+18- What is Readonly and Constant
+19- Explain few exceptions you faced in c#
+20- what is static where it is used
+21- Access Modifier
+
+
+Selenium
+1- What kind wait you will use Explicit or Implicit wait and its syntax
+2- what are the methods used in driver
+3- How will you handle dropdown
+4- How will you handle frames and to come out of the frame what you will use
+5- what is the return type for WebElement and WebElements
+6- How will you handle Alert and its type with syntax
+7- How will you handle Windows
+8- How do you handle Authentication URL
+9- Screenshot syntax
+10- If click is not working what is next option - (use JavaScript Executor)
+11- If JavaScript Executor is not working what is next option  - (use Actions class)
+12- How do you scrolldown
+13- What is using statements
+14- What kind of Exceptions you often get (mainly they ask about Stale Element Exception and Element Click Intercepted Exception)
+15- what is try and catch
+16- What is Xpath and its types
+17- What are Axes Based Xpaths
+18- How do Handle Web Table
+19- What is Serialization and De-serialization
+
+NUnit
+1- What are the attributes used in your framework
+2- How do you run test cases parallelly
+3- Explain about your framework
+4- What kind of Reports you used in your framework
+5- How to retrieve the TestData JSON to your Testcase
+
+
+
+
+
+
+
+
+
+
+
+
+
